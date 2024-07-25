@@ -3,6 +3,8 @@ workspace:
     loja:
       path: ./
       dependencies:
+        - argonaut
+        - codec-argonaut
         - console
         - effect
         - halogen
@@ -11,11 +13,17 @@ workspace:
       test_dependencies: []
       build_plan:
         - aff
+        - argonaut
+        - argonaut-codecs
+        - argonaut-core
+        - argonaut-traversals
         - arrays
         - assert
         - avar
         - bifunctors
         - catenable-lists
+        - codec
+        - codec-argonaut
         - console
         - const
         - contravariant
@@ -62,6 +70,7 @@ workspace:
         - partial
         - prelude
         - profunctor
+        - profunctor-lenses
         - quickcheck
         - random
         - record
@@ -78,6 +87,7 @@ workspace:
         - unfoldable
         - unsafe-coerce
         - unsafe-reference
+        - variant
         - web-clipboard
         - web-dom
         - web-events
@@ -614,6 +624,54 @@ packages:
       - tailrec
       - transformers
       - unsafe-coerce
+  argonaut:
+    type: registry
+    version: 9.0.0
+    integrity: sha256-9sHzkzcFkaMUa9+3FjIybJDYnHtY4Jp4zHOJ84qPTXo=
+    dependencies:
+      - argonaut-codecs
+      - argonaut-core
+      - argonaut-traversals
+  argonaut-codecs:
+    type: registry
+    version: 9.1.0
+    integrity: sha256-N6efXByUeg848ompEqJfVvZuZPfdRYDGlTDFn0G0Oh8=
+    dependencies:
+      - argonaut-core
+      - arrays
+      - effect
+      - foreign-object
+      - identity
+      - integers
+      - maybe
+      - nonempty
+      - ordered-collections
+      - prelude
+      - record
+  argonaut-core:
+    type: registry
+    version: 7.0.0
+    integrity: sha256-RC82GfAjItydxrO24cdX373KHVZiLqybu19b5X8u7B4=
+    dependencies:
+      - arrays
+      - control
+      - either
+      - foreign-object
+      - functions
+      - gen
+      - maybe
+      - nonempty
+      - prelude
+      - strings
+      - tailrec
+  argonaut-traversals:
+    type: registry
+    version: 10.0.0
+    integrity: sha256-9nSfqR70rjiNWVVsCoK+jrm9dmyZTx89IKNYO6uNUIk=
+    dependencies:
+      - argonaut-codecs
+      - argonaut-core
+      - profunctor-lenses
   arrays:
     type: registry
     version: 7.3.0
@@ -674,6 +732,24 @@ packages:
       - prelude
       - tuples
       - unfoldable
+  codec:
+    type: registry
+    version: 6.1.0
+    integrity: sha256-6vMLNlsJxQarVQ9cn1FYfl5x6opfzxAza15SzRdxFxQ=
+    dependencies:
+      - bifunctors
+      - profunctor
+  codec-argonaut:
+    type: registry
+    version: 10.0.0
+    integrity: sha256-n80U8KiBk333qfQwDobSZWiyNg9BA3CL/EwFznIdRwI=
+    dependencies:
+      - argonaut-core
+      - codec
+      - foreign-object
+      - ordered-collections
+      - type-equality
+      - variant
   console:
     type: registry
     version: 6.1.0
@@ -1174,6 +1250,31 @@ packages:
       - newtype
       - prelude
       - tuples
+  profunctor-lenses:
+    type: registry
+    version: 8.0.0
+    integrity: sha256-K7f29rHRHgVSb2Y/PaSKtfYPriP6n87BJNO7EhsZHas=
+    dependencies:
+      - arrays
+      - bifunctors
+      - const
+      - control
+      - distributive
+      - either
+      - foldable-traversable
+      - foreign-object
+      - functors
+      - identity
+      - lists
+      - maybe
+      - newtype
+      - ordered-collections
+      - partial
+      - prelude
+      - profunctor
+      - record
+      - transformers
+      - tuples
   quickcheck:
     type: registry
     version: 8.0.1
@@ -1360,6 +1461,19 @@ packages:
     integrity: sha256-zU7BhfJU14nXQRZG9iADsp0mSiKhz07OcKyjRB2YT+Y=
     dependencies:
       - prelude
+  variant:
+    type: registry
+    version: 8.0.0
+    integrity: sha256-SR//zQDg2dnbB8ZHslcxieUkCeNlbMToapvmh9onTtw=
+    dependencies:
+      - enums
+      - lists
+      - maybe
+      - partial
+      - prelude
+      - record
+      - tuples
+      - unsafe-coerce
   web-clipboard:
     type: registry
     version: 5.0.0
