@@ -6,6 +6,7 @@ package:
     - console
     - effect
     - halogen
+    - precise-datetime
     - prelude
     - routing-duplex
   test:
