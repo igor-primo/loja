@@ -3,7 +3,9 @@ package:
   dependencies:
     - console
     - effect
+    - halogen
     - prelude
+    - routing-duplex
   test:
     main: Test.Main
     dependencies: []
